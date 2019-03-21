@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import time
 import json
 
-KAKAO_TOKEN = "-hLP9hgAkxksjoaKzWk0hfW1PT69vZir1xUvtQopdtYAAAFpKI9XCA"
+KAKAO_TOKEN = "카카오토큰 입력"
 send_lists = []
 
 def send_to_kakao(text):

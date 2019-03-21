@@ -8,8 +8,8 @@ import logging
 import requests
 from bs4 import BeautifulSoup
 
-TELEGRAM_TOKEN = "764903770:AAFUt-D8upiktmVG4uPPBCugdOFgIlRZglw"
-CHAT_ID = "765108376"
+TELEGRAM_TOKEN = "텔레그램 토큰을 입력하세요"
+CHAT_ID = "채팅 아이디를 입력하세요"
 
 
 # Enable logging

@@ -1,0 +1,30 @@
+<div class="messages"></div>
+<form>
+    <input type="text" name="nickname" class="nickname">
+    <input tpye="text" name="message" class="message">
+    <input type="submit" value="전송">
+</form>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
+<script type="text/javascript">
+    var socket = io.connect("http://" + document.domain + ":" + location.port);
+    socket.on("connect", function() {
+        socket.emit("event", {data:"Connect"});
+
+        var form = $("form").on("submit", function(e) {
+            e.preventDefault();
+            let nickname = $("input.nickname").val();
+            let message = $("input.message").val();
+
+            socket.emit("event", {
+                nickname: nickname,
+                message: message
+                });
+            $("input.message").val("").focus();
+        })
+    });
+    socket.on("response", function(msg) {
+        $("div.messages").append("<div><b style='color:blue'>" + msg.nickname + "</b> " + msg.message + "</div>");
+    });
+</script>
